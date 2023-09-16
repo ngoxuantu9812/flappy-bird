@@ -7,6 +7,7 @@
   align-items: center;
   background:url('../images/bg.png') no-repeat;
   position: relative;
+  width: 272px;
 }
 
 .title a {
