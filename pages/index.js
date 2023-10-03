@@ -6,16 +6,16 @@ import {useEffect, useState} from "react";
 
 export default function Home() {
 
-    const [top, setTop] = useState(400);
+    const [top, setTop] = useState(300);
     const [checkFloor, setCheckFloor] = useState(true);
 
     const [floorTop, setFloorTop] = useState({
-        height: Math.random() * (512 - 100),
+        height: Math.random() * (200),
         left: 100
     });
 
     const [floorBottom, setFloorBottom] = useState({
-        height: 512 - floorTop.height - 100,
+        height: 300 - floorTop.height - 100,
         left: 100
     })
 

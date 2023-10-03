@@ -17,7 +17,6 @@ const Bird = (params: any) => {
     }, [top]);
 
     useEffect(() => {
-        // console.log(top)
         // const animationFrame = requestAnimationFrame(() => {
         //     setTop(top + 0.5);
         // });
@@ -29,7 +28,7 @@ const Bird = (params: any) => {
 
     return(
         <>
-            <img src={bird.src} style={{position:"absolute",left:30, top:top}}></img>
+            <img src={bird.src} style={{position:"absolute",left:"40%", top:top}}></img>
         </>
     )
 }
