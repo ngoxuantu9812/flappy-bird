@@ -7,26 +7,25 @@ export default function Home() {
 
     const [top, setTop] = useState(300);
     const [score, setScore] = useState(0);
-
-    const [listFloor, setListFloor] = useState(function () {
-        let items = [];
-        for (let i = 0; i < 122; i++) {
-            let x = Math.random() * 200
-            let item = {
-                id:i,
-                floorTop: {
-                    height: x,
-                    left: 100 + 50*i
-                },
-                floorBottom: {
-                    height: 200 - x,
-                    left: 100 + 50*i
-                }
-            }
-            items.push(item)
-        }
-        return items
-    })
+    const [listFloor, setListFloor] = useState([])
+    // const [listFloor, setListFloor] = useState(function () {
+    //     for (let i = 0; i < 122; i++) {
+    //         let x = Math.random() * 200
+    //         let item = {
+    //             id:i,
+    //             floorTop: {
+    //                 height: x,
+    //                 left: 100 + 50*i
+    //             },
+    //             floorBottom: {
+    //                 height: 200 - x,
+    //                 left: 100 + 50*i
+    //             }
+    //         }
+    //         items.push(item)
+    //     }
+    //     return items
+    // })
 
     useEffect(() => {
     }, [score])

@@ -5,34 +5,45 @@ const Pipe = (params: any) => {
     const {listFloor, setListFloor} = params
     const [check, setCheck]= useState(0)
     useEffect(() => {
-        const animationFrameFloor = requestAnimationFrame(() =>{
-            setCheck(check+1)
-             let items = listFloor.map((item, key) => {
-                return {
-                    id: key,
-                    floorTop: {
-                        height: item.floorTop.height,
-                        left: 100 + 50 * key - 0.1
-                    },
-                    floorBottom: {
-                        height: 200 - item.floorTop.height,
-                        left: 100 + 50 * key - 0.1
-                    }
-                }
-            })
-            setListFloor(items)
-        });
-        console.log(check)
+        // const animationFrameFloor = requestAnimationFrame(() =>{
+        //     setCheck(check+1)
+        //      let items = listFloor.map((item, key) => {
+        //         return {
+        //             id: key,
+        //             floorTop: {
+        //                 height: item.floorTop.height,
+        //                 left: 100 + 50 * key - 0.1
+        //             },
+        //             floorBottom: {
+        //                 height: 200 - item.floorTop.height,
+        //                 left: 100 + 50 * key - 0.1
+        //             }
+        //         }
+        //     })
+        //     setListFloor(items)
+        // });
+        // console.log(check)
 
-        return () => {
-            cancelAnimationFrame(animationFrameFloor);
-        };
+        // return () => {
+        //     cancelAnimationFrame(animationFrameFloor);
+        // };
+        const itemFloor = Math.random()*200
+        const arrayFloor = [...listFloor,itemFloor]
+        setListFloor(arrayFloor)
+        // console.log(check)
     }, [listFloor, check])
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCheck(check+1)
+            console.log(check)
+          }, 3000);
+          return () => clearInterval(interval);
+    }, [])
 
     return listFloor.map((item) => {
         return <div key={item.id} className="pipe">
-            <img src={floor.src} style={{
+            {/* <img src={floor.src} style={{
                 top: -item.floorTop.height,
                 transform: "rotate(180deg)",
                 height: "300px",
@@ -48,7 +59,7 @@ const Pipe = (params: any) => {
                 width: "45px",
                 left: item.floorBottom.left + "%",
                 transition: 0.3
-            }}></img>
+            }}></img> */}
         </div>
     })
 }
