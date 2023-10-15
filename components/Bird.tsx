@@ -1,12 +1,11 @@
 import bird from "../images/bird.png"
 import {useEffect, useState} from "react";
 const Bird = (params: any) => {
-    const {top, setTop} = params
+    const {top, setTop, start} = params
     useEffect(() => {
         const keyDownHandler = (e) => {
             if (e.code === "Space") {
-                console.log(top);
-                setTop(top - 20);
+                setTop(top - 30);
             }
         };
         document.addEventListener("keydown", keyDownHandler);
@@ -17,13 +16,16 @@ const Bird = (params: any) => {
     }, [top]);
 
     useEffect(() => {
-        // const animationFrame = requestAnimationFrame(() => {
-        //     setTop(top + 0.5);
-        // });
-        //
-        // return () => {
-        //     cancelAnimationFrame(animationFrame);
-        // };
+        if (start == 1){
+            const animationFrame = requestAnimationFrame(() => {
+                setTop(top + 1);
+            });
+
+            return () => {
+                cancelAnimationFrame(animationFrame);
+            };
+        }
+
     }, [top]);
 
     return(

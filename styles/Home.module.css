@@ -5,10 +5,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background:url('../images/bg.png') no-repeat;
+  background:url('../images/bg.png') repeat-x;
   position: relative;
   width: 272px;
-  /*overflow: hidden;*/
+  overflow: hidden;
+  animation: slide 3s linear infinite;
 }
 
 .title a {
